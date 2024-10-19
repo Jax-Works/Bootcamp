@@ -164,7 +164,9 @@ You are tasked with analyzing a series of police reports to create a detailed an
 “Digital manipulation” (DM) refers to cases where there are alteration/enhancement/modifications from simple digital editing to the use of AI/ML technologies used on photos, videos, and audio. 
 Use of Deepfake or any other AI/ML technologies is also considered digital manipulation.
 
-The report should summarize key findings and identify patterns. Focus on the following areas:
+The report should summarize key findings and identify patterns. If there are insufficient information, inform the user.
+
+Focus on the following areas:
 
 Incident Overview: Provide a summary of the cases in one paragraph, including the variant of digital manipulation (e.g., audio manipulation, video manipulation) if any. Highlight any significant incidents or outliers.
 
