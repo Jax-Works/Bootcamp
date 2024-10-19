@@ -81,6 +81,9 @@ def click_button():
     df_responses = pd.DataFrame()
 
     #For each facts in the df['FACTS']...take the facts and put in prompt and send to LLM
+    if "FACTS" not in df.columns:
+        st.error("Please ensure that you have a 'FACTS' column.")
+        return
     for facts in df['FACTS']:
         prompt = f"""
 You are a police officer investigating cases of “Digital Manipulation”.
