@@ -24,7 +24,7 @@ st.set_page_config(
 #Defining Functions
 
 #Download button (Converting df)
-@st.cache_data
+@st.cache_data(ttl = 3600, max_entries = 10)
 def convert_df(df):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
     return df.to_csv().encode("utf-8-sig")
