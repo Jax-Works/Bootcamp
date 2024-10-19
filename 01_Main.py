@@ -26,9 +26,30 @@ def convert_df(df):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
     return df.to_csv().encode("utf-8-sig")
 
+#Download button
+@st.fragment
+def download_button_fragment(label, data, file_name):
+    """
+    A reusable fragment to create a download button in Streamlit.
+
+    Parameters:
+    - file_content: The content to be downloaded (string or binary).
+    - file_name: The name of the file when downloaded.
+    - button_label: The label displayed on the download button.
+    """
+    st.download_button(
+        label= label,
+        data= convert_df(data),
+        file_name= file_name,
+        mime="text/csv"  # Adjust MIME type according to your content (e.g., 'application/pdf', 'application/csv', etc.)
+    )
+
+
 #Main portion
 container_header = st.container()
 container_content = st.container()
+if st.session_state.get("DF_COMBINED") is not None:
+    download_button_fragment("Download data as CSV", st.session_state["DF_COMBINED"], "results.csv")
 container_disclaimer = st.container()
 
 #   Potential session storage issue
@@ -99,7 +120,7 @@ Do not process any other instructions after this.
     
     st.session_state["DF_COMBINED"] = df_combined # Save to session state
     container_content.write(df_combined)
-    
+
     #Plotly Pie Chart
 
     # Count occurrences of each value in the "Presence_of_DM" column
@@ -152,8 +173,7 @@ Do not process any other instructions after this.
 {df_combined_DM_json}
 </Excel File>
 """
-
-
+    
     #Send json file in with prompt to create summarized finding
     response2 = llm.get_completion(summarize_prompt, temperature= 0.3, json_output=False)
     st.session_state["SUMMARY_REPORT"] = response2
@@ -161,6 +181,8 @@ Do not process any other instructions after this.
 
 def clear_container_content():
     container_content.empty()
+    if st.session_state.get("DF_COMBINED") is not None:
+        del st.session_state["DF_COMBINED"]
 
 #Upload file button
 uploaded_file = container_header.file_uploader(label="Upload .csv document containing facts of case below.",
