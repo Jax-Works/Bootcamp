@@ -26,7 +26,6 @@ def convert_df(df):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
     return df.to_csv().encode("utf-8-sig")
 
-#Download button
 @st.fragment
 def download_button_fragment(label, data, file_name):
     """
@@ -43,7 +42,6 @@ def download_button_fragment(label, data, file_name):
         file_name= file_name,
         mime="text/csv"  # Adjust MIME type according to your content (e.g., 'application/pdf', 'application/csv', etc.)
     )
-
 
 #Main portion
 container_header = st.container()
@@ -72,7 +70,7 @@ column_names = {
     'Final Answer': 'Presence_of_DM'
 }
 
-#Click button
+#Click button (Everything runs after clicking run LLM)
 def click_button():
     # container_content.empty()
     st.toast(f"Checking for presence of digital manipulation in your file...")
@@ -200,7 +198,6 @@ if uploaded_file is not None:
     container_header.write(df)
     container_header.write("Is the file above correct? Do ensure that the facts of case column is labelled 'FACTS'")
     container_header.button('Run LLM!', on_click=click_button) 
-
 
 #Disclaimer
 container_disclaimer.expander("Disclaimer").write("""

@@ -19,16 +19,17 @@ if st.session_state.get("DF_COMBINED") is not None:
 st.title("About Us")
 
 # Self Introduction
+st.subheader("Introduction")
 st.write("""
          I am an analyst in the Singapore Police Force (SPF), 
-         I am passionate about harnessing the power of digitalization and large language models to transform the way we work. 
+         I am passionate about harnessing the power of data and large language models to transform the way we work. 
          My interest is on integrating data and artificial intelligence into practical applications that enhance efficiency and effectiveness in our processes. 
          By leveraging innovative technologies, I aim to save time and improve outcomes, ultimately contributing to a more proactive and informed approach to law enforcement
          """)
 
 st.subheader("Context")
 st.write("""
-         SPF has dedicated analysts to research upon and keep track of different types of databases relating to different crimes.
+         SPF has dedicated analysts to research upon and keep track of different types of databases relating to different offences.
 
          Currently, we lack a dedicated database for cases relating to Digital Manipulation (DM).
          DM cases refer to cases where there are alteration/enhancement/modifications from simple digital editing to the use of AI/ML technologies used on photos, videos, and audio. 
@@ -55,19 +56,6 @@ st.write("""
          The data is obtained from police reports. 
          Personal identifiable information has been removed to ensure anonymity.
          Any names of individuals or businesses used are completely made-up.
-         """)
-
-st.subheader("Features")
-st.write("""
-         The app utilizes advanced prompting techniques, including chain of thought prompting, to enhance the accuracy of its outputs.
-         By guiding the model to break down complex queries into a series of logical steps, the app ensures that responses are thoughtful, thorough, and context-aware. 
-         This approach allows the app to handle multifaceted problems with precision, ensuring each aspect of a query is carefully considered before delivering a final answer. 
-         
-         For digital manipulation (DM) cases, the app automatically generates simple, yet informative, summaries of uploaded cases. 
-         These summaries highlight key elements such as ????, 
-         making it easier for users to quickly understand the essence of each case. 
-         The app also categorizes cases based on ????  
-         Designed for scalability, the app handles uploads efficiently, offering streamlined insights for researchers and professionals dealing with large volumes of DM data.
          """)
 
 st.subheader("Contact")
