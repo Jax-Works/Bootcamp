@@ -31,4 +31,4 @@ Case Summary Generation: The app generates concise yet informative summaries of 
 Designed for scalability, the app efficiently processes uploads, delivering streamlined insights for researchers and professionals handling large volumes of DM data.""")
 
 # Insert flowchart
-st.image("Image/Flowchart.png", caption="Illustration of Methodology as a Flowchart")
+st.image("image/Flowchart.png", caption="Illustration of Methodology as a Flowchart")
